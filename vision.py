@@ -29,7 +29,7 @@ def main():
     cvSink = cs.getVideo()
     
     # (optional) Setup a CvSource. This will send images back to the Dashboard
-    outputStream = cs.putVideo("Rectangle", 320, 240)
+    outputStream = cs.putVideo("Ultra cool vision", 320, 240)
     
     # Allocating new images is very expensive, always try to preallocate
     img = np.zeros(shape=(240, 320, 3), dtype=np.uint8)    
