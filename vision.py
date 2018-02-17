@@ -34,6 +34,8 @@ def main():
     # Allocating new images is very expensive, always try to preallocate
     img = np.zeros(shape=(240, 320, 3), dtype=np.uint8)    
 
+    finder = TargetFinder.TargetFinder()
+
     while True:
         # Tell the CvSink to grab a frame from the camera and put it
         # in the source image.  If there is an error notify the output.
@@ -45,8 +47,6 @@ def main():
             continue
         
         # Put a rectangle on the image
-        cv2.rectangle(img, (100, 100), (300, 300), (255, 255, 255), 5)
-        
+        img = finder.processFrame(img, finder.boundaries)    
         # Give the output stream a new image to display
         outputStream.putFrame(img)
- 
